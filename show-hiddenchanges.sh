@@ -6,7 +6,7 @@ resource_names=$(cat tfplan.json | jq ' .resource_changes[].address')
 index=0
 for resource in $resource_names
   do
-    #echo "Index - Sindex"
+    #echo "Index = Sindex"
     echo "Resource Address: $(jq --arg jq_index $index ' .resource_changes[$jq_index|tonumber].address' tfplan.json)"
     echo "Module Address: $(jq --arg jq_index $index ' .resource_changes[$jq_index|tonumber].module_address' tfplan.json)"
     echo "Resource Type: $(jq --arg jq_index $index ' .resource_changes[$jq_index|tonumber].type' tfplan.json)"
