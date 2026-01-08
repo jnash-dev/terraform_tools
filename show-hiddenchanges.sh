@@ -4,7 +4,7 @@ terraform show -json tfplan > tfplan.json
 rm tfplan
 resource_names=$(cat tfplan.json | jq ' .resource_changes[].address')
 index=0
-for resource in $resource names
+for resource in $resource_names
   do
     #echo "Index - Sindex"
     echo "Resource Address: $(jq --arg jq_index $index ' .resource_changes[$jq_index|tonumber].address' tfplan.json)"
